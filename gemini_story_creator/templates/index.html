@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI Story Creator</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>✨ AI Story Creator ✨</h1>
+        <p>Turn your ideas into magical stories instantly!</p>
+      </header>
+
+      <main>
+        <div class="input-section">
+          <form id="storyForm">
+            <div class="form-group">
+              <label for="title">Story Title</label>
+              <input
+                type="text"
+                id="title"
+                placeholder="e.g., The Magic Forest"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="prompt">What is the story about?</label>
+              <textarea
+                id="prompt"
+                placeholder="e.g., A young wizard finds a hidden map..."
+                required
+              ></textarea>
+            </div>
+
+            <div class="row">
+              <div class="form-group">
+                <label for="characters">Characters</label>
+                <input
+                  type="text"
+                  id="characters"
+                  placeholder="e.g., Leo, Mia, Draco"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label for="style">Writing Style</label>
+                <select id="style">
+                  <option value="Adventure">Adventure</option>
+                  <option value="Fantasy">Fantasy</option>
+                  <option value="Funny">Funny</option>
+                  <option value="Mystery">Mystery</option>
+                  <option value="Sci-Fi">Sci-Fi</option>
+                  <option value="Fairy Tale">Fairy Tale</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group">
+                <label for="length">Length</label>
+                <select id="length">
+                    <option value="Short">Short (approx. 200 words)</option>
+                    <option value="Medium">Medium (approx. 500 words)</option>
+                    <option value="Long">Long (approx. 800 words)</option>
+                    <option value="Unlimited">Unlimited (As long as possible)</option>
+                </select>
+            </div>
+
+            <button type="submit" id="generateBtn">
+                <span class="btn-text">Generate Story</span>
+                <span class="loader"></span>
+            </button>
+          </form>
+        </div>
+
+        <div class="output-section" id="outputSection" style="display: none">
+          <div class="story-card">
+            <h2 id="storyTitleDisplay"></h2>
+            <div class="story-meta">
+              <span id="storySource" class="badge"></span>
+            </div>
+            <div class="story-content" id="storyContent"></div>
+            <button id="resetBtn" class="secondary-btn">
+              Create Another Story
+            </button>
+          </div>
+        </div>
+      </main>
+    </div>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+  </body>
+</html>
